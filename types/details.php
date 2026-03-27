@@ -11,7 +11,7 @@ $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
             or die("niet mogelijk om te verbinden");
 
 
-$query = "SELECT id, the_name, provider, medium, prijs FROM streams WHERE id=$id";
+$query = "SELECT id, Label, FROM streams WHERE id=$id";
 
 $preparedquery = $dblink->prepare($query);
 if(!$preparedquery) { 
@@ -23,7 +23,7 @@ $preparedquery->execute();
 $result = $preparedquery->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    echo $row['the_name'] . "-" . $row['provider'] . "-" . $row['prijs'] . "<br>";
+    echo $row['id'] . "-" $row['Label'] . "<br>";
     echo "<a href='updateform.php?id={$row['id']}'>Update Form</a><br>";
 };
 
@@ -51,7 +51,7 @@ for ($i = 5; $i >= 1; $i--) {
     }
 }
 echo "<a href=\"confirm.php?id=$id\">Delete</a>" . "<br>";
-echo "<a href=\"index.php\">Main</a>" . "<br>";
+echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 echo '<a href="overview.php?id=' . $previous . '">Previous</a> ' . "<br>";
 echo '<a href="overview.php?id=' . $next . '">Next Page</a>' . "<br>";
 

@@ -6,10 +6,7 @@ $dbname = "testschool";
 
 $old_id = $_POST['old_id']; 
 $new_id = $_POST['id'];
-$the_name = $_POST['the_name'];
-$provider = $_POST['provider'];
-$medium = $_POST['medium'];
-$prijs = $_POST['prijs'];
+$Label = $_POST['Label'];
 
 
 $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
@@ -17,7 +14,7 @@ $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
 
 
 $query = "UPDATE streams 
-          SET id = ?, the_name = ?, provider = ?, medium = ?, prijs = ?
+          SET id = ?, Label = ?
           WHERE id = ?";
 
 $preparedquery = $dblink->prepare($query);
@@ -26,7 +23,7 @@ if (!$preparedquery) {
 }
 
 
-$preparedquery->bind_param("isssdi",$new_id,$the_name,$provider,$medium,$prijs,$old_id);
+$preparedquery->bind_param("is",$new_id,$Label);
 
 if ($preparedquery->execute()) {
     echo "Record succesvol aangepast";
@@ -34,7 +31,7 @@ if ($preparedquery->execute()) {
     echo "Fout bij aanpassen: " . $preparedquery->error;
 }
 
-echo "<a href=\"index.php\">Main</a>";
+echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 
 $preparedquery->close();
 $dblink->close();

@@ -26,7 +26,7 @@ if ($preparedquery->execute()) {
     echo "Fout bij aanpassen: " . $preparedquery->error . "<br>";
 }
 
-echo "<a href=\"index.php\">Main</a>";
+echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 
 $preparedquery->close();
 $dblink->close();

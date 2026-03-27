@@ -7,12 +7,12 @@ echo '<form action="create.php" method="post" >
     <p>provider</p>
     <input type="text"  name="provider"><br>
     <p>medium</p>
-    <input type="text" name="medium"><br>
+    <input type="text" name="midium"><br>
     <p>prijs</p>
     <input type="text" name="prijs"><br>
     <button type="sumbit" >versturen</button>
 </form>';
-echo "<a href=\"index.php\">Main</a>";
+echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 
 
 ?>

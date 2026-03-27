@@ -9,7 +9,7 @@ $dbname = "testschool";
 $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
             or die("niet mogelijk om te verbinden");
 
-$query = "SELECT id, the_name, provider, medium, prijs FROM streams WHERE id=$id";
+$query = "SELECT id, the_name, provider, midium, prijs FROM streams WHERE id=$id";
 
 $preparedquery = $dblink->prepare($query);
 if(!$preparedquery) { 
@@ -24,10 +24,10 @@ $row = $result->fetch_assoc();
 
 $the_name = $row['the_name'];
 $provider = $row['provider'];
-$medium = $row['medium'];
+$midium = $row['midium'];
 $prijs = $row['prijs'];
 
-echo "<a href=\"index.php\">Main</a>";
+echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 ?>
 
 <form action="update.php" method="post" > 
@@ -39,7 +39,7 @@ echo "<a href=\"index.php\">Main</a>";
     <p>provider</p>
     <input type="text"  name="provider" value="<?= $provider ?>"><br>
     <p>medium</p>
-    <input type="text" name="medium" value="<?= $medium ?>"><br>
+    <input type="text" name="midium" value="<?= $midium ?>"><br>
     <p>prijs</p>
     <input type="text" name="prijs" value="<?= $prijs ?>"><br>
     <button type="sumbit" >versturen</button>

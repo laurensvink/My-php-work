@@ -7,14 +7,14 @@ $dbname = "testschool";
 $id = $_POST['id'];
 $the_name = $_POST['the_name'];
 $provider = $_POST['provider'];
-$medium = $_POST['medium'];
+$midium = $_POST['midium'];
 $prijs = $_POST['prijs'];
 
 $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
             or die("niet mogelijk om te verbinden");
 
 
-$query = "INSERT INTO streams (id,the_name,provider,medium,prijs) VALUES (?, ?, ?, ?, ?)";
+$query = "INSERT INTO streams (id,the_name,provider,midium,prijs) VALUES (?, ?, ?, ?, ?)";
 
 $preparedquery = $dblink->prepare($query);
 if(!$preparedquery) { 
@@ -22,7 +22,7 @@ if(!$preparedquery) {
 }
 
 
-$preparedquery->bind_param("issii", $id, $the_name, $provider, $medium, $prijs);
+$preparedquery->bind_param("issii", $id, $the_name, $provider, $midium, $prijs);
 
 if ($preparedquery->execute()) {
     echo "Record succesfull toegevoegd";
@@ -31,7 +31,7 @@ if ($preparedquery->execute()) {
 }
 
 
-echo "<a href=\"index.php\">Main</a>";
+echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 
 
 $preparedquery->close();
