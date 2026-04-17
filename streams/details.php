@@ -1,3 +1,6 @@
+<head> 
+    <link rel="stylesheet" href="style.css">
+</head>
 <?php
 
 $id = $_GET['id'];
@@ -11,7 +14,7 @@ $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
             or die("niet mogelijk om te verbinden");
 
 
-$query = "SELECT id, the_name, provider, midium, prijs FROM streams WHERE id=?";
+$query = "SELECT id, name, provider, medium, prijs FROM streams WHERE id=?";
 
 $preparedquery = $dblink->prepare($query);
 if(!$preparedquery) { 
@@ -23,12 +26,12 @@ $preparedquery->execute();
 $result = $preparedquery->get_result();
  $midium = NULL;
 while ($row = $result->fetch_assoc()) {
-    $midium = $row['midium'];
-    echo $row['the_name'] . "-" . $row['provider'] . "-" . $row['prijs'] .  "<br>";
+    $midium = $row['medium'];
+    echo $row['name'] . "-" . $row['provider'] . "-" . $row['prijs'] .  "<br>";
 };
 
 
-$query = "SELECT Label From types WHERE id= ?";
+$query = "SELECT label From types WHERE id= ?";
 $preparedquery = $dblink->prepare($query);
 if(!$preparedquery) { 
     die("prepare niet gelukt:" . $dblink->error);
@@ -41,7 +44,7 @@ $result = $preparedquery->get_result();
 $row = $result->fetch_assoc();
 
 if ($row) {
-    $midium_label = $row['Label'];
+    $midium_label = $row['label'];
 } else {
     $midium_label = "?";
 }
@@ -49,7 +52,7 @@ if ($row) {
 echo $midium_label;
 
 
-echo "<a href='updateform.php?id={$row['id']}'>Update Form</a>" . "<br>";
+echo "<a href='form.php?id={$id}'>Update stream</a><br>";
 echo "<a href=\"confirm.php?id=$id\">Delete</a>" . "<br>";
 echo "<a href=\"..\index.php\">Main</a>" . "<br>";
 

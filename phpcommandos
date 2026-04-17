@@ -1,0 +1,27 @@
+INSERT INTO types (label)
+VALUES
+  ('tv'),
+  ('muziek'),
+  ('podcast');
+
+
+CREATE TABLE types (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    label VARCHAR(255)
+);
+
+
+CREATE TABLE persons (
+  id int,
+  firstname varchar(255),
+  middlename varchar(255),
+  lastname varchar(255)
+);
+
+CREATE TABLE orders (
+  personid int,
+  streamid int
+);
+
+INSERT INTO orders (personid, streamid)
+VALUES (2, 6);

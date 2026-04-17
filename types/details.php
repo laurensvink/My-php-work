@@ -1,3 +1,6 @@
+<head> 
+    <link rel="stylesheet" href="style.css">
+</head>
 <?php
 
 $id = $_GET['id'];
@@ -8,54 +11,38 @@ $dbpass = "";
 $dbname = "testschool";
 
 $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)
-            or die("niet mogelijk om te verbinden");
+    or die("niet mogelijk om te verbinden");
 
-
-$query = "SELECT id, Label, FROM streams WHERE id=$id";
+// ✅ Prepared statement met placeholder
+$query = "SELECT id, label FROM streams WHERE id = ?";
 
 $preparedquery = $dblink->prepare($query);
-if(!$preparedquery) { 
-    die("prepare niet gelukt:" . $dblink->error);
+if (!$preparedquery) {
+    die("prepare niet gelukt: " . $dblink->error);
 }
+
+// ✅ Bind parameter (i = integer)
+$preparedquery->bind_param("i", $id);
 
 $preparedquery->execute();
 
 $result = $preparedquery->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    echo $row['id'] . "-" $row['Label'] . "<br>";
-    echo "<a href='updateform.php?id={$row['id']}'>Update Form</a><br>";
-};
-
-$next = $id;
-
-for ($i = 1; $i <= 5; $i++) {
-    if ($i == $id) {
-        $next = $i + 1;
-        if ($next > 5) {
-            $next = 1;
-        }
-        break;
-    }
+    echo $row['id'] . " - " . $row['label'] . "<br>";
+    echo "<a href='form.php?id={$row['id']}'>Update types</a><br>";
 }
 
-$previous = $id;
+?>
 
-for ($i = 5; $i >= 1; $i--) {
-    if ($i == $id) {
-        $previous = $i - 1;
-        if ($previous < 1) {
-            $previous = 5;
-        }
-        break;
-    }
-}
-echo "<a href=\"confirm.php?id=$id\">Delete</a>" . "<br>";
-echo "<a href=\"..\index.php\">Main</a>" . "<br>";
-echo '<a href="overview.php?id=' . $previous . '">Previous</a> ' . "<br>";
-echo '<a href="overview.php?id=' . $next . '">Next Page</a>' . "<br>";
+<div class="navigation">
+    <a href="confirm.php?id=<?php echo $id; ?>">Delete</a><br>
+    <a href="../index.php">Main</a><br>
+</div>
 
+<?php
 
 $preparedquery->close();
 $dblink->close();
+
 ?>
