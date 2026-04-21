@@ -1,0 +1,46 @@
+🏰 MEDIEVAL THEME - PROJECTWEEK2 🏰
+=====================================
+
+✓ UPDATES APPLIED:
+
+1. LOGIN PAGE (login.php)
+   - "Incorrect password." → "Verkeerde sleutel tot het kasteel!" (Wrong key to the castle!)
+   - "User not found." → "Gij zijt niet in het register van de burcht." (You are not in the register of the fortress!)
+
+2. UPLOAD PAGE (upload.php)
+   - "Upload successful!" → "Het kunstwerk is met succes in het Kunstcabinet geplaatst!" 
+     (The artwork has been successfully placed in the Art Cabinet!)
+   - "Database error." → "Zware fout in het Register der Kunstwerken." 
+     (Serious error in the Register of Artworks!)
+   - "Upload failed." → "Het kunstwerk kon niet worden geplaatst." 
+     (The artwork could not be placed!)
+   - "Only JPG, JPEG, PNG & WEBP allowed." → "Slechts Afbeeldingen in JPG, JPEG, PNG & WEBP zijn toegestaan."
+     (Only Images in JPG, JPEG, PNG & WEBP are allowed.)
+
+3. ADMIN DASHBOARD (admin.php)
+   - Enhanced welcome message with shields and swords: "⚔️ Welkom in het Koninklijke Paleis! ⚔️"
+   - Updated description: "Gij zijt de bewaarder der Koninklijke Schatten. Gebruik de gewijde doorgangen om de erfenis te beheren."
+     (You are the keeper of the Royal Treasures. Use the sacred passages to manage the heritage.)
+   - Added medieval emoji icons to navigation links:
+     📜 Kronieken Beheren (Chronicles Management)
+     📅 Agenda Beheren (Calendar Management)
+     🖼️ Kunstwerken Uploaden (Artworks Upload)
+     🏛️ Kunstcabinet Bekijken (Art Cabinet View)
+     🚪 Uit het Paleis (Exit the Palace)
+
+4. BACKGROUND & STYLING
+   - Updated body background with dark medieval gradient
+   - Enhanced header with darker, more dramatic medieval colors
+   - Improved shadows and borders for more depth
+
+🌟 EXISTING MEDIEVAL ELEMENTS (already in place):
+   - Royal Palace ("Koninklijk Paleis") theme
+   - Chronicles ("Kronieken") management
+   - Royal Decrees ("Decreet Uitroepen")
+   - Art Cabinet ("Kunstcabinet")
+   - Medieval-themed color scheme (golds, browns, deep reds)
+   - Shield and sword decorations
+   - Serif fonts (Georgia, Garamond)
+   - Parchment-like backgrounds
+
+All messages and labels are now in Dutch with medieval terminology!
