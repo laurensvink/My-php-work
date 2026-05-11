@@ -66,7 +66,9 @@ mysqli_close($dblink);
     </style>
 </head>
 <body>
-
+<img src="assets/kkrding.png" class="flying-dino">
+<img src="assets/crownvincie.png" class="flying-dino-2">
+<img src="assets/vincieincar.png" class="bottom-rider">
 <header>
     <h1>Welkom bij KVW Gorinchem 2026!</h1>
     <h2>Thema: Middeleeuwen</h2>

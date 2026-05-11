@@ -20,6 +20,13 @@ body::before {
     pointer-events: none;
 }
 
+/* FLOAT ANIMATION ADDED */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
 header {
     background: linear-gradient(135deg, rgba(108, 79, 40, 0.7), rgba(167, 126, 66, 0.7)), url('../assets/castle-landscape-photo-l.jpg') center/cover no-repeat;
     color: #fff9d6;
@@ -180,6 +187,9 @@ p {
     display: block;
     border-radius: 14px;
     border: 3px solid #a17b47;
+
+    /* FLOAT APPLIED HERE */
+    animation: float 3s ease-in-out infinite;
 }
 
 .photo p {
@@ -188,182 +198,87 @@ p {
     color: #5a3f22;
 }
 
-form {
-    margin-top: 20px;
-}
-
-input[type="text"], input[type="email"], input[type="password"], textarea, select {
-    width: 100%;
-    padding: 14px 16px;
-    margin-bottom: 18px;
-    border: 3px solid #b08c54;
-    border-radius: 18px;
-    background: rgba(255, 247, 224, 0.98);
-    color: #5b3f21;
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
-    color: #8b6f4a;
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: #8b5a26;
-    box-shadow: 0 0 12px rgba(139, 105, 69, 0.3);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-input[type="submit"], button, .btn, .upload-btn {
-    padding: 14px 28px;
-    background: linear-gradient(135deg, #a77f44 0%, #d9b86d 100%);
-    color: #3d2b14;
-    border: 2px solid #7b5530;
-    border-radius: 18px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-family: 'Georgia', serif;
-    font-weight: bold;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-input[type="submit"]:hover, button:hover, .btn:hover, .upload-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 20px rgba(125, 85, 33, 0.25);
-    background: linear-gradient(135deg, #d9b86d 0%, #a77f44 100%);
-}
-
-.message {
-    padding: 18px 22px;
-    margin-bottom: 22px;
-    background: #fff2d5;
-    color: #4d321a;
-    border-left: 6px solid #b98a4e;
-    border-radius: 16px;
-    box-shadow: 0 6px 16px rgba(109, 70, 22, 0.15);
-}
-
-footer {
-    margin-top: 40px;
-    padding: 24px 12px;
-    text-align: center;
-    background: #7f5f31;
-    color: #f8e8c3;
-    border-top: 4px solid #d3b57a;
-}
-
-footer::after {
-    content: " ⚜";
-}
-
-@media (max-width: 860px) {
-    main {
-        padding: 24px;
-    }
-
-    nav ul {
-        gap: 8px;
-    }
-
-    section {
-        padding: 22px;
-    }
-}
-
-@media (max-width: 640px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    section {
-        border-radius: 20px;
-    }
-
-    nav a {
-        padding: 8px 14px;
-        font-size: 0.85rem;
-    }
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
+.flying-dino {
     position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(5px);
-    justify-content: center;
-    align-items: center;
+    width: 120px;
+    height: 120px;
+    z-index: 9999;
+
+    animation: 
+        moveX 6s linear infinite alternate,
+        moveY 4s linear infinite alternate,
+        wiggle 0.6s ease-in-out infinite;
 }
 
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 90%;
-    max-height: 90%;
-    animation: modalFadeIn 0.3s ease-out;
+/* BOUNCE */
+@keyframes moveX {
+    from { left: 0; }
+    to   { left: calc(100vw - 120px); }
 }
 
-.modal-image {
-    max-width: 100%;
-    max-height: 80vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+@keyframes moveY {
+    from { top: 0; }
+    to   { top: calc(100vh - 120px); }
 }
 
-.modal-title {
-    margin-top: 15px;
-    color: white;
-    font-size: 1.2rem;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+/* WIGGLE */
+@keyframes wiggle {
+    0%   { transform: rotate(-5deg); }
+    50%  { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+.flying-dino-2 {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    z-index: 9999;
+
+    animation: 
+        drift 10s linear infinite,
+        spin 4s linear infinite,
+        wobble 1s ease-in-out infinite;
 }
 
-.close {
-    position: absolute;
-    top: -60px;
-    right: 0;
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid white;
-}
-
-.close:hover {
-    color: #ccc;
-    background: rgba(0, 0, 0, 0.7);
-}
-
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
+/* DIAGONAL DRIFT (wraps around screen) */
+@keyframes drift {
+    0% {
+        top: -120px;
+        left: -120px;
     }
-    to {
-        opacity: 1;
-        transform: scale(1);
+    100% {
+        top: 100vh;
+        left: 100vw;
+    }
+}
+
+/* CONTINUOUS SPIN */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* LITTLE WOBBLE */
+@keyframes wobble {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(10deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+.bottom-rider {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 220px;
+    height: auto;
+    z-index: 9999;
+
+    animation: rideAcross 10s linear infinite;
+}
+
+@keyframes rideAcross {
+    0% {
+        transform: translateX(-250px);
+    }
+    100% {
+        transform: translateX(100vw);
     }
 }

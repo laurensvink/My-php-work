@@ -1,0 +1,21 @@
+.stream-line {
+    margin: 4px 0;
+    padding-left: 10px;
+    border-left: 3px solid #2d6cdf;
+}
+a {
+    display: inline-block;
+    padding: 10px 14px;
+    margin: 6px 6px 0 0;
+    background: #2d6cdf;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    background: #1f4fb8;
+    transform: translateY(-2px);
+}
